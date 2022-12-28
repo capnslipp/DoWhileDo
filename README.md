@@ -1,7 +1,7 @@
-# doWhileDo
+# DoWhileDo
 
 
-**doWhileDo** is a Swift micro-library that provides do-while-do and do-until-do loops.
+**DoWhileDo** is a Swift micro-library that provides do-while-do and do-until-do loops.
 
 The do-while-do design pattern is a variation of the while loop that executes a block of statements at least once before checking a condition. It can be useful in situations where you want to ensure that a block of statements is executed at least once, even if the condition is false from the start.
 
