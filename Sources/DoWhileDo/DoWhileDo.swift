@@ -10,7 +10,7 @@ public typealias DoFunc = ()->Void
 public typealias WhileConditionFunc = ()->Bool
 public typealias UntilConditionFunc = ()->Bool
 
-enum DoWhileDoError : Error {
+public enum DoWhileDoError : Error {
 	case exitLoop
 }
 
@@ -18,7 +18,7 @@ enum DoWhileDoError : Error {
 
 // MARK: do-while-do
 
-@inlinable
+@_transparent
 public func doWhileDo(_ do1: DoFunc, while: WhileConditionFunc, do do2: DoFunc)
 {
 	while true {
@@ -33,6 +33,7 @@ public func doWhileDo(_ do1: DoFunc, while: WhileConditionFunc, do do2: DoFunc)
 
 public typealias WhileFunc = (@autoclosure WhileConditionFunc) throws -> Void
 
+@_transparent
 public func doWhileDo(_ context: (_ `while`: WhileFunc) throws -> Void)
 {
 	func whileFunc(_ whileCondition: WhileConditionFunc) throws {
@@ -54,7 +55,7 @@ public func doWhileDo(_ context: (_ `while`: WhileFunc) throws -> Void)
 
 // MARK: do-until-do
 
-@inlinable
+@_transparent
 public func doUntilDo(_ do1: DoFunc, until: UntilConditionFunc, do do2: DoFunc)
 {
 	while true {
@@ -69,6 +70,7 @@ public func doUntilDo(_ do1: DoFunc, until: UntilConditionFunc, do do2: DoFunc)
 
 public typealias UntilFunc = (@autoclosure UntilConditionFunc) throws -> Void
 
+@_transparent
 public func doUntilDo(_ context: (_ until: UntilFunc) throws -> Void)
 {
 	func untilFunc(_ untilCondition: UntilConditionFunc) throws {
